@@ -6,3 +6,9 @@ posts with comments, convert them to mobi format and optionally
 mail ready mobi file to user's Kindle.
 
 For any questions or suggestions write me on [hgrzywacz@gmail.com](mailto:hgrzywacz@gmail.com).
+
+
+## Temporary testing
+
+	$ python test.py clean
+	$ python test.py test_mobi
