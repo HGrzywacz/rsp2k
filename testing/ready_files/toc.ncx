@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1" xml:lang="en-US">
+
+<head>
+	<meta name="dtb:uid" content="BookId"/>
+	<meta name="dtb:depth" content="2"/>
+	<meta name="dtb:totalPageCount" content="0"/>
+	<meta name="dtb:maxPageNumber" content="0"/>
+</head>
+	<docTitle><text>Testing book</text></docTitle>
+<docAuthor><text>Test_mobi_create module</text></docAuthor>
+
+<navMap>
+<navPoint class="toc" id="toc" playOrder="1">
+<navLabel>
+<text>Table of Contents</text>
+</navLabel>
+<content src="toc.html"/>
+</navPoint>
+
+<navPoint class="section1.rhtm" id="section1.rhtm" playOrder="0">
+<navLabel>
+<text>Section 1</text>
+</navLabel>
+<content src="section1.rhtm"/>
+</navPoint>
+
+<navPoint class="section2.rhtm" id="section2.rhtm" playOrder="1">
+<navLabel>
+<text>Section 2</text>
+</navLabel>
+<content src="section2.rhtm"/>
+</navPoint>
+
+<navPoint class="section3.rhtm" id="section3.rhtm" playOrder="2">
+<navLabel>
+<text>Section 3</text>
+</navLabel>
+<content src="section3.rhtm"/>
+</navPoint>
+
+</navMap>
+</ncx>
