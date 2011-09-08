@@ -1,0 +1,38 @@
+body {	font-size:.7em;}
+.comments {font-size:.7em;}
+h3 {font-size:1.3em;}
+h2 {font-size:1.4em;}
+h4 {font-size:1em;}
+h5 {font-size:1em;}
+
+.clear { clear: both; }
+.callout { padding: 20px 0px 20px 20px; }
+.quotation { font-style: italic; }
+.attribution { text-align: right; }
+
+body {margin-top: 0em;
+
+	margin-left: 0.5em;}
+
+ul {margin-top: 0;
+
+	margin-left: 2.5em;}
+
+
+
+li {list-style-type: disc;
+
+	list-style-position: outside;
+
+	font-size: 1em;
+
+	font-style: normal;
+
+	margin-top: 0;
+
+	margin-left: 0;
+
+	padding-bottom: 0;
+
+	padding-left: 0;}
+
