@@ -41,17 +41,33 @@ def red_get(url):
     return response # decoded json
 
 
-def write_comment(comment, f=None, intendation=0):
+def write_comment(comment, f=None, level=0):
 
-    in_step = 5
+    in_step = 10
+    intendation = str(in_step * level)
+
+    kind = comment['kind']
 
     if comment['kind'] != 't1':
-        print('Not a comment.')
+        print('Not a comment.') # TODO raise exception
         sys.exit()
 
     data = comment['data']
-    f.write(r'<p style="margin-left:' + str(intendation * in_step) + 'px;">')
-    f.write(str(data['ups']) + ' ' + str(data['author']))
+    body = data['body']
+    body_html = data['body_html']
+    author = data['author']
+    created = data['created']
+
+    try:
+        points = int(data['ups'])
+    except KeyError:
+        points = int( 0 - int(data['downs']))
+
+    f.write(r'<p style="margin-left:' + intendation + 'px;">')
+    f.write(str(author) + ' ' + str(points))
+    f.write(r'<pre style="margin-left:' + intendation + 'px;">')
+    f.write(body)
+    f.write('</pre>' + '\n')
     f.write(r'</p>' + '\n')
 
     replies = data['replies']
@@ -59,8 +75,9 @@ def write_comment(comment, f=None, intendation=0):
         return
 
     for i in data['replies']['data']['children']:
-        write_comment(i, f, intendation + 1)
+        write_comment(i, f, level + 1)
 
+    return 0
 
 
 def main():
