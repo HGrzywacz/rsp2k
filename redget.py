@@ -8,8 +8,6 @@ import re
 
 from urlparse import urlparse, urlunparse, parse_qs
 
-import config
-
 
 def red_get(url):
 
@@ -19,8 +17,6 @@ def red_get(url):
         parsed_params = parse_qs(query)
     else:
         parsed_params = query
-
-    #parsed_params['limit'] = [config.limit]
 
     fragment = None
 
