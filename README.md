@@ -25,7 +25,5 @@ Name of created file will be printed
 ## Most important things to do:
 
 * Fetching more comments than API returns in one response, as shown [here](https://github.com/reddit/reddit/wiki/API)
-* Main script that links uses all the parts as one
-** Option parser.
-** Kindlegen runner.
+* Main script that links uses all the parts as one - option parser, Kindlegen runner.
 * Mailing .mobi as attachment.
