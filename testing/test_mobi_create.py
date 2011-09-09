@@ -2,7 +2,7 @@
 intended to be runned, only imported from ../test.py"""
 
 if __name__=='__main__':
-    print "This module isn't intended to be __main__"
+    print("This module isn't intended to be __main__")
     exit()
 
 from create_mobi import arguments_for_create_mobi as arguments
@@ -10,7 +10,7 @@ from create_mobi import arguments_for_create_mobi as arguments
 import os, sys
 from datetime import date
 
-print 'test_mobi_create imported'
+print('test_mobi_create imported')
 
 md = arguments.MetaData
 md.creator = 'Test_mobi_create module'
@@ -38,17 +38,17 @@ def test():
 def clean():
     try:
         os.remove(rfs.directory + 'toc.html')
-        print "toc.html removed"
+        print("toc.html removed")
     except OSError:
         pass
     try:
         os.remove(rfs.directory + 'toc.ncx')
-        print "toc.ncx removed"
+        print("toc.ncx removed")
     except OSError:
         pass
     try:
         os.remove(rfs.directory + 'book.opf')
-        print "book.opf removed"
+        print("book.opf removed")
     except OSError:
         pass
  

@@ -1,4 +1,6 @@
 # Files to ignore for ease of testing.
 
-test.html
+*.html
 *.pyc
+*.bak
+*.css

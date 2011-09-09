@@ -12,7 +12,7 @@ import sys
 import testing.test_mobi_create
 
 def clean():
-    print "Cleaning..."
+    print("Cleaning...")
     testing.test_mobi_create.clean()
 
 def test():
