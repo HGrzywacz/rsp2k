@@ -28,6 +28,7 @@ import os
 import json
 from datetime import datetime
 import urlparse
+import codecs
 
 
 def red_get(url):
@@ -159,18 +160,18 @@ def write_comment(comment, f=None, level=0):
 
 
 def write_head(f, title):
-    f.write(r'<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">')
-    f.write(r'<html xmlns="http://www.w3.org/1999/xhtml">')
+    f.write(r'<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">' + '\n')
+    f.write(r'<html xmlns="http://www.w3.org/1999/xhtml">' + '\n')
     f.write(r'<head>' + '\n' + r'<title>')
     f.write(title) # TODO: TITLE
-    f.write('</title>')
+    f.write('</title>' + '\n')
 #    f.write(r'<link rel="stylesheet" href="styles.css" type="text/css">')
     f.write(r'</head>' + '\n' + '<body>' + '\n')
 
 
 def write_tail(f):
     f.write('\n' + r'</body>' + '\n')
-    f.write(r'</html>' + '\n')
+    f.write(r'</html>')
 
 
 def get_post(url):
@@ -181,8 +182,8 @@ def get_post(url):
     except OSError:
         pass # that PROBABLY means file doesn't exist
 
-    f = open('test.html', 'w')
-    temp = open('intend.html', 'r')
+    f = codecs.open('test.html', 'w', 'utf-8')
+    temp = open('intend.html', 'r') # I'll pretend like I know what this is for. ;P
     lines = temp.readlines()
     temp.close()
 
@@ -207,8 +208,10 @@ def main():
     try:
         url = str(sys.argv[1])
     except IndexError:
-        url = 'http://www.reddit.com/r/TwoXChromosomes/comments/k812x/ladies_i_am_about_to_see_my_ex_for_the_first_time/'
+        url = 'http://www.reddit.com/r/reddit.com/comments/k8sny/a_survey_my_company_is_making_us_takei_think/'
     get_post(url)
+    print "Done."
+    
     sys.exit()
 
 

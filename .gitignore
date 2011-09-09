@@ -1,0 +1,4 @@
+# Files to ignore for ease of testing.
+
+test.html
+*.pyc
