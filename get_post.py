@@ -47,9 +47,13 @@ def red_get(url):
 
     fragment = None
 
-    assert path.endswith('.json') or path.endswith('/')
-    if path.endswith('/'):
-        path = path + '.json'
+    try:
+        assert path.endswith('.json') or path.endswith('/')
+        if path.endswith('/'):
+            path = path + '.json'
+    except AssertionError:
+        print('\n' + 'Invalid URL.')
+        return "InvalidURL"
 
     new_urltuple = (scheme, host, path, params,
                     urllib.parse.urlencode(parsed_params, doseq = True),
@@ -187,6 +191,8 @@ def write_tail(f):
 
 def get_post(url):
     response = red_get(url)
+    if response == "InvalidURL":
+        return False
 
     post = response[0]['data']['children'][0]
     comments = response[1]['data']['children']
