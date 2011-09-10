@@ -22,7 +22,7 @@ TODO:
 
 Copyright:
 Hubert Grzywacz (hgrzywacz@gmail.com)
-Derek Langley
+Derek Langley (derek@dereklangley.com)
 """
 
 import sys
@@ -115,7 +115,7 @@ def write_comment(comment, f=None, level=0):
 
     if kind != 't1':
         if kind == 'more':
-            print('.', end=' ')
+            print('.', end='')
             # TODO: load more comments if element is 'more'
             # see: https://github.com/reddit/reddit/wiki/API - fetching
             # more
@@ -199,6 +199,8 @@ def get_post(url):
     except OSError:
         pass # that PROBABLY means file doesn't exist
 
+    print('\n' + 'Filename: ' + filename)
+    
     f = codecs.open(filename, 'w', 'utf-8')
 
     write_head(f, title)
@@ -212,8 +214,6 @@ def get_post(url):
     write_tail(f)
     f.close()
 
-    print("Filename:" + filename)
-
     # needed for mobi creation
     r = (filename, title)
     return r
@@ -221,15 +221,26 @@ def get_post(url):
 
 def main():
 
-    print('Running this script as __main__ should be done only for testing'
-            'purpouses.')
+    print('WARNING: Running this script as __main__ should be done only for '
+            'testing purposes.')
 
     try:
         url = str(sys.argv[1])
     except IndexError:
-        url = 'http://www.reddit.com/r/reddit.com/comments/k8sny/a_survey_my_company_is_making_us_takei_think/'
-    get_post(url)
-    print("Done.")
+        print('INFO: No URL passed to script, checking for links.txt')
+        try:
+            # If no URL is passed in via command line, check links.txt for list of links to use
+            with codecs.open('links.txt', 'r', 'utf-8') as links:
+                line_number = 0
+                for link_line in links:
+                    line_number += 1
+                    get_post(link_line.rstrip())
+        except IOError as e:
+            print('INFO: links.txt was not found, using hardcoded URL.')
+            url = 'http://www.reddit.com/r/reddit.com/comments/k8sny/a_survey_my_company_is_making_us_takei_think/'
+            get_post(url)
+                
+    print('\n' + 'Finished.')
 
     sys.exit()
 
