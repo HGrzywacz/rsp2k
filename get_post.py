@@ -28,47 +28,12 @@ Derek Langley (derek@dereklangley.com)
 import sys
 import os
 import json
-import urllib.parse as urlparse
 import urllib.request
 import codecs
-
 from datetime import datetime
-
 import xml.sax.saxutils
 
-def red_get(url):
-
-    scheme, host, path, params, query, fragment = urllib.parse.urlparse(url)
-
-    if query:
-        parsed_params = urllib.parse.parse_qs(query)
-    else:
-        parsed_params = query
-
-    fragment = None
-
-    try:
-        assert path.endswith('.json') or path.endswith('/')
-        if path.endswith('/'):
-            path = path + '.json'
-    except AssertionError:
-        print('\n' + 'Invalid URL.')
-        return "InvalidURL"
-
-    new_urltuple = (scheme, host, path, params,
-                    urllib.parse.urlencode(parsed_params, doseq = True),
-                    fragment)
-
-    composed_sourceurl = urllib.parse.urlunparse(new_urltuple)
-
-    response = urllib.request.urlopen(composed_sourceurl)
-
-    s = response.read().decode('utf-8')
-
-    decoder = json.JSONDecoder()
-    response = decoder.decode(s)
-
-    return response # decoded json
+from red_get import red_get
 
 
 def write_post(post, f):
@@ -206,7 +171,7 @@ def get_post(url):
         pass # that PROBABLY means file doesn't exist
 
     print('\n' + 'Filename: ' + filename)
-    
+
     f = codecs.open(filename, 'w', 'utf-8')
 
     write_head(f, title)
@@ -245,7 +210,7 @@ def main():
             print('INFO: links.txt was not found, using hardcoded URL.')
             url = 'http://www.reddit.com/r/reddit.com/comments/k8sny/a_survey_my_company_is_making_us_takei_think/'
             get_post(url)
-                
+
     print('\n' + 'Finished.')
 
     sys.exit()
