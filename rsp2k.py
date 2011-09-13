@@ -43,7 +43,7 @@ def run_kindlegen(bookopf):
     if not (sys.platform.startswith('win') or sys.platform.startswith('Win')):
         os.system(kgen_here + ' ' + bookopf)
     else:
-        os.system(kgen_here_exe + ' ' + bookopf)
+        os.system('start ' + kgen_here_exe + ' ' + bookopf)
     return
 
 
