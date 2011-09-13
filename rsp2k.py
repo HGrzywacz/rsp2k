@@ -36,10 +36,11 @@ def from_file(onefile, directory, readyfiles):
 
 def run_kindlegen(bookopf):
 
+    # Yes there are two paths you can go by...
     kgen_here = os.path.join(os.getcwd(), 'kindlegen')
     kgen_here_exe = os.path.join(os.getcwd(), 'kindlegen.exe')
 
-    if sys.platform.startswith('lin'):
+    if not (sys.platform.startswith('win') or sys.platform.startswith('Win')):
         os.system(kgen_here + ' ' + bookopf)
     else:
         os.system(kgen_here_exe + ' ' + bookopf)
