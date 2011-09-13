@@ -138,7 +138,7 @@ def main():
         if i > number:
             found = True
             break
-        links.append(res['data']['url'])
+        links.append('http://www.reddit.com' + res['data']['permalink'])
 
     while not found:
         after = response['data']['after']
@@ -150,7 +150,7 @@ def main():
             if i > number:
                 found = True
                 break
-            links.append(res['data']['url'])
+            links.append('http://www.reddit.com' + res['data']['permalink'])
 
     filename_folder = os.path.join('lists', filename)
     filename_print = filename_folder
