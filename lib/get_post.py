@@ -33,7 +33,8 @@ import codecs
 from datetime import datetime
 import xml.sax.saxutils
 
-from red_get import red_get
+from . import red_get
+#import red_get
 
 
 def write_post(post, f):
@@ -154,8 +155,8 @@ def write_tail(f):
     f.write(r'</html>')
 
 
-def get_post(url):
-    response = red_get(url)
+def get_post(url, directory='.'):
+    response = red_get.red_get(url)
     if response == "InvalidURL":
         return False
 
@@ -170,7 +171,10 @@ def get_post(url):
     except OSError:
         pass # that PROBABLY means file doesn't exist
 
-    print('\n' + 'Filename: ' + filename)
+    filename = os.path.join(directory,filename)
+
+    if __name__ == '__main__':
+        print('\n' + 'Filename: ' + filename)
 
     f = codecs.open(filename, 'w', 'utf-8')
 

@@ -4,5 +4,8 @@
 *.pyc
 *.bak
 *.css
+*.swp
 __pycache__/*
 nogit/*
+lists/*
+kindlegen

@@ -3,7 +3,6 @@
 
 class MetaData(object):
     'Metadata container'
-    
 
     creator = str()
     title = str()
@@ -13,7 +12,6 @@ class MetaData(object):
 
 class ReadyFile(object):
     'Description of rhtml file'
-
 
     filename = str()
     name = str()
@@ -25,7 +23,6 @@ class ReadyFile(object):
 
 class ReadyFiles(list):
     'List of ready files'
-
 
     directory = str()
 

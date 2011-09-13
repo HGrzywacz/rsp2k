@@ -11,18 +11,20 @@ def create_mobi(readyfiles, metadata):
     create_toc(readyfiles)
     create_ncx(readyfiles, metadata)
     create_opf(readyfiles, metadata)
-    kindlegen(metadata)
 
 
 def create_toc(rfs):
 
-    if os.path.exists(rfs.directory + 'toc.html'):
+    filename = os.path.join(rfs.directory, 'toc.html')
+
+    if os.path.exists(filename):
         print("toc.html file already exists. Nothing changed.")
         return
 
     print('Creating toc.html')
 
-    f = open(rfs.directory + 'toc.html', 'w')
+
+    f = open(filename, 'w')
 
     f.write(tc.h1)
     f.write(tc.h2)
@@ -40,13 +42,16 @@ def create_toc(rfs):
 
 def create_ncx(rfs, md):
 
-    if os.path.exists(rfs.directory + 'toc.ncx'):
+    filename = os.path.join(rfs.directory, 'toc.ncx')
+
+    if os.path.exists(filename):
         print('toc.ncx file already exists. Nothing changed.')
         return
 
     print('Creating toc.ncx')
 
-    f = open(rfs.directory + 'toc.ncx', 'w')
+
+    f = open(filename, 'w')
 
     f.write(ncx.h1)
     f.write(ncx.h2)
@@ -79,13 +84,16 @@ def create_ncx(rfs, md):
 
 def create_opf(rfs, md):
 
-    if os.path.exists(rfs.directory + 'book.opf'):
+    filename = os.path.join(rfs.directory, 'book.opf')
+
+    if os.path.exists(filename):
         print('book.opf file already exists. Nothing changed.')
         return
 
     print('Creating book.opf')
 
-    f = open(rfs.directory + 'book.opf', 'w')
+
+    f = open(filename, 'w')
 
     for i in range(0,4):
         f.write(opf[i])
@@ -110,7 +118,7 @@ def create_opf(rfs, md):
         f.write(opf[i])
 
     for rf in rfs:
-        i = rfs.index(rf)
+        i = rfs.index(rf) + 2
         f.write('<itemref idref="item' + str(i) + '"/>' + "\n")
 
     f.write(opf[15])
