@@ -1,20 +1,26 @@
 #!/usr/bin/env python3
 """
+It's called get_top but one can get anything.
+
 Try:
     get_top.py kindle 21 new
     get_top.py 13 controversial month askreddit
     get_top.py 50 top all relationship_advice
 
 to get idea what this script is for.
+
+Copyright Hubert Grzywacz (hgrzywacz@gmail.com)
 """
 
 import os
 import sys
 
-from red_get import red_get
+from lib.red_get import red_get
 
 WARNING_NUMBER = 50
+HUGE_WARNING_NUMBER = 1000
 TESTING = False
+
 
 def main():
 
@@ -51,10 +57,15 @@ def main():
     if not time:
         time = 'all'
 
-    if number >= WARNING_NUMBER:
-        print('More than 50 posts? Really? (y/n)')
-        a = sys.stdin.read(1)
-        if a != 'y':
+    if number > WARNING_NUMBER:
+        if number > HUGE_WARNING_NUMBER:
+            print('MORE THAT ' + str(HUGE_WARNING_NUMBER)
+                    + '!?!? Do you want to kill reddit?! (y/n)')
+        else:
+            print('More than' + str(WARNING_NUMBER)
+                    + 'posts? Really? (y/n)')
+        answer = sys.stdin.read(1)
+        if answer != 'y':
             sys.exit()
 
     print('Time: ' + time, end='')
@@ -67,7 +78,7 @@ def main():
         print(filename)
 
     def make_url(after):
-        """ Makes url """
+        """ Makes url! """
         # hot
         if category == 'hot':
             if after:
@@ -141,7 +152,15 @@ def main():
                 break
             links.append(res['data']['url'])
 
-    f = open(filename, 'w')  # also original name for a file handler
+    filename_folder = os.path.join('lists', filename)
+    filename_print = filename_folder
+
+    # try saving to folder lists (ordnung muss sein)
+    try:
+        f = open(filename_folder, 'w')
+    except IOError:
+        f = open(filename, 'w')  # also original name for a file handler
+        filename_print = filename
 
     print('Writing to file...')
     for line in links:
@@ -149,10 +168,9 @@ def main():
 
     f.close()
 
-    print(str(len(links)) + ' links were saved to the ' + filename + ' file.')
+    print(str(len(links)) + ' links were saved to the ' + filename_print + ' file.')
 
 
 if __name__ == '__main__':
     main()
     sys.exit()
-

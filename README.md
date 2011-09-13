@@ -9,6 +9,28 @@ For any questions or suggestions write me on [hgrzywacz@gmail.com](mailto:hgrzyw
 
 Code is tested with python '''3.2.'''
 
+## Get\_top
+
+Tool for making lists. It's called get top but it's for getting top, new, controversial and hot.
+Interface is as simple as possible:
+
+	$ get_top.py kindle 10 new
+
+Gets ten newest submissions from r/kindle.
+
+	$ get_top.py 60 day askreddit
+
+Gets 60 top (default action) from day from r/askreddit.
+
+	$ get_top.py controversial 321 all world_news
+
+Gets 321 most controversial submissions of all time from r/world\_news.
+As you can see order of arguments is irrelevant and none of them is mandatory! Just type out what you want.
+If you ask me it's "don't make me think" rule personified (codified?).
+
+List will be seved with a proper name (that will be displayed) in current directory OR if you want 
+to lists/ folder - just create it.
+
 ## Temporary testing
 
 Mobi content file creation, opf, toc.html, toc.ncx from few .rhtml files I've prepared:

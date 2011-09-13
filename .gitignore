@@ -4,3 +4,5 @@
 *.pyc
 *.bak
 *.css
+__pycache__/*
+nogit/*
