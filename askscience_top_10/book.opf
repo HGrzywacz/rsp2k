@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package unique-identifier="uid">
+	<metadata>
+		<dc-metadata xmlns:dc="http://purl.org/metadata/dublin_core" xmlns:oebpackage="http://openebook.org/namespaces/oeb-package/1.0/">
+		<dc:Title>askscience_top_10</dc:Title>
+		<dc:Creator>Reddit.com</dc:Creator>
+		<dc:Language>en</dc:Language>
+	</dc-metadata>
+
+	<x-metadata>
+		<output encoding="utf-8"></output>
+		<EmbeddedCover>cover.jpg</EmbeddedCover>
+	</x-metadata>
+</metadata>
+
+<manifest>
+<item id="item1" media-type="application/xhtml+xml" href="toc.html"></item>
+<item id="item2" media-type="application/xhtml+xml" href="t3_15in05.html"></item>
+<item id="item3" media-type="application/xhtml+xml" href="t3_11i9nv.html"></item>
+<item id="item4" media-type="application/xhtml+xml" href="t3_w0qgf.html"></item>
+<item id="item5" media-type="application/xhtml+xml" href="t3_xr3s0.html"></item>
+<item id="item6" media-type="application/xhtml+xml" href="t3_xtqq5.html"></item>
+<item id="item7" media-type="application/xhtml+xml" href="t3_13qki4.html"></item>
+<item id="item8" media-type="application/xhtml+xml" href="t3_127tb4.html"></item>
+<item id="item9" media-type="application/xhtml+xml" href="t3_108nvt.html"></item>
+<item id="item10" media-type="application/xhtml+xml" href="t3_14315q.html"></item>
+<item id="item11" media-type="application/xhtml+xml" href="t3_p4vlp.html"></item>
+<item id="My_Table_of_Contents" media-type="application/x-dtbncx+xml" href="toc.ncx"/>
+</manifest>
+<spine toc="My_Table_of_Contents">
+<itemref idref="item2"/>
+<itemref idref="item3"/>
+<itemref idref="item4"/>
+<itemref idref="item5"/>
+<itemref idref="item6"/>
+<itemref idref="item7"/>
+<itemref idref="item8"/>
+<itemref idref="item9"/>
+<itemref idref="item10"/>
+<itemref idref="item11"/>
+<itemref idref="item1"/>

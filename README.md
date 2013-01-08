@@ -7,7 +7,7 @@ mail ready mobi file to user's Kindle.
 
 For any questions or suggestions write me on [hgrzywacz@gmail.com](mailto:hgrzywacz@gmail.com).
 
-Code is tested with python '''3.2.'''
+Code is tested with Python v 3.2.
 
 ## Get\_top
 

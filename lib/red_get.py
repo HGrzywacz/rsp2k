@@ -31,9 +31,15 @@ def red_get(url):
                     urllib.parse.urlencode(parsed_params, doseq=True),
                     fragment)
 
+
     composed_sourceurl = urllib.parse.urlunparse(new_urltuple)
 
-    response = urllib.request.urlopen(composed_sourceurl)
+    hdr= {'User-Agent' : 'reddit self posts to kindle by /u/Cohomotopian'}
+
+    req = urllib.request.Request(composed_sourceurl, headers=hdr)
+
+    #response = urllib.request.urlopen(composed_sourceurl)
+    response = urllib.request.urlopen(req)
 
     s = response.read().decode('utf-8')
 
